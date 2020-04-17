@@ -14,8 +14,8 @@ add 添加 maven 依赖
     <version>1.0.0</version>
   </dependency>
 ```
-this dependency to your pom.xml
-then just like this 然后就像这样
+this dependency to your pom.xml  
+then just like this 然后就像这样  
 support both English and Chinese 支持返回中英文国家/省/州/市名
 
 ```java
