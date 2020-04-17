@@ -19,29 +19,30 @@ then just like this 然后就像这样
 support both English and Chinese 支持返回中英文国家/省/州/市名
 
 ```java
+    // the 1st param support both HttpServletRequest or ip String , the 2nd param support zh-CN(can be null) or en
+    // 第一参数支持 HttpServletRequest 或 字符串的ip ,第二参数 语言 null 的话默认返回中文
+    String countryName = IpUtil.getCountryName("183.22.183.2", null);
+    // or  String countryName = IpUtil.getCountryName("183.22.183.2", "zh-CN");
+    //中国
+    System.out.println(countryName);
+    countryName = IpUtil.getCountryName("183.22.183.2", "en");
+    //China
+    System.out.println(countryName);
 
-        String countryName = IpUtil.getCountryName("183.22.183.2", null);
-        // or  String countryName = IpUtil.getCountryName("183.22.183.2", "zh-CN");
-        //中国
-        System.out.println(countryName);
-        countryName = IpUtil.getCountryName("183.22.183.2", "en");
-        //China
-        System.out.println(countryName);
+    String stateName = IpUtil.getStateName("183.22.183.2", null);
+    // or String stateName = IpUtil.getStateName("183.22.183.2", "zh-CN");
+    //广东
+    System.out.println(stateName);
+    stateName = IpUtil.getStateName("183.22.183.2", "en");
+    //Guangdong
+    System.out.println(stateName);
 
-        String stateName = IpUtil.getStateName("183.22.183.2", null);
-        // or String stateName = IpUtil.getStateName("183.22.183.2", "zh-CN");
-        //广东
-        System.out.println(stateName);
-        stateName = IpUtil.getStateName("183.22.183.2", "en");
-        //Guangdong
-        System.out.println(stateName);
-
-        //Guangdong
-        String cityName = IpUtil.getCityName("183.22.183.2", null);
-        // or String cityName = IpUtil.getCityName("183.22.183.2", "zh-CN");
-        //东莞市
-        System.out.println(cityName);
-        cityName = IpUtil.getCityName("183.22.183.2", "en");
-        //Dongguan
-        System.out.println(cityName);
+    //Guangdong
+    String cityName = IpUtil.getCityName("183.22.183.2", null);
+    // or String cityName = IpUtil.getCityName("183.22.183.2", "zh-CN");
+    //东莞市
+    System.out.println(cityName);
+    cityName = IpUtil.getCityName("183.22.183.2", "en");
+    //Dongguan
+    System.out.println(cityName);
 ```
