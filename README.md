@@ -19,8 +19,8 @@ then just like this 然后就像这样
 support both English and Chinese 支持返回中英文国家/省/州/市名
 
 ```java
-    // the 1st param support both HttpServletRequest or ip String , the 2nd param support zh-CN(can be null) or en
-    // 第一参数支持 HttpServletRequest 或 字符串的ip ,第二参数 语言 null 的话默认返回中文
+    // the 1st param support both HttpServletRequest or ip String , the 2nd param support zh-CN(equals to null) or en
+    // 第一参数支持 HttpServletRequest 或 字符串的ip ,第二参数支持 语言 目前支持中文或英文 给null 的话默认返回中文
     String countryName = IpUtil.getCountryName("183.22.183.2", null);
     // or  String countryName = IpUtil.getCountryName("183.22.183.2", "zh-CN");
     //中国
