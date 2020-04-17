@@ -1,11 +1,6 @@
 package com.github.blankhang.util;
 
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.DefaultResourceLoader;
-import org.springframework.core.io.ResourceLoader;
-
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -39,32 +34,24 @@ public class FileUtil {
         return new File(getPath() + pathName);
     }
 
-    /**
-     * 将指定文件路径的文件读成流返回
-     *
-     * @param fileFullPath 文件路径
-     * @return java.io.InputStream
-     * @throws IOException 异常
-     * @author blank
-     * @since 1.0.0
-     */
-    public static InputStream resourceLoader(String fileFullPath) throws IOException {
-        ResourceLoader resourceLoader = new DefaultResourceLoader();
-        return resourceLoader.getResource(fileFullPath).getInputStream();
-    }
 
     /**
      * 将指定的ClassPath[Resources]下文件路径的文件读成流返回
      *
      * @param classPathFile Resources下的相对路径
      * @return java.io.InputStream
-     * @throws IOException 异常
      * @author blank
+     * @see <a href=https://stackoverflow.com/questions/20389255/reading-a-resource-file-from-within-jar>reading-a-resource-file-from-within-jar</a>
      * @since 1.0.0
      */
-    public static InputStream getClassPathResource(String classPathFile) throws IOException {
-        ClassPathResource resource = new ClassPathResource(classPathFile);
-        return resource.getInputStream();
+    public static InputStream getClassPathResource(String classPathFile) {
+        // this is the path within the jar file
+        InputStream inputStream = FileUtil.class.getResourceAsStream(classPathFile);
+        if (inputStream == null) {
+            // this is how we load file within editor (eg eclipse)
+            inputStream = FileUtil.class.getClassLoader().getResourceAsStream(classPathFile);
+        }
+        return inputStream;
     }
 
 }

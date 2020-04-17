@@ -28,7 +28,6 @@
         <hutool.version>5.2.5</hutool.version>
         <lombok.version>1.18.12</lombok.version>
         <commons-lang3.version>3.9</commons-lang3.version>
-        <springframework.version>5.2.5.RELEASE</springframework.version>
 
     </properties>
 
@@ -77,20 +76,6 @@
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
             <version>9.0.33</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${springframework.version}</version>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${springframework.version}</version>
-            <optional>true</optional>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->

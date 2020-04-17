@@ -33,10 +33,24 @@ public class IpUtil {
     private static final String UNKNOWN = "unknown";
     private static final String LOCALHOST = "localhost";
     private static final String LOCALHOST_IP = "127.0.0.1";
+    private static final String INTERNAL_NETWORK = "INTERNAL_NETWORK";
 
     private static final String GET_IP_INFO_API = "https://api.ip.sb/geoip/";
 
     private static final String ZH_CN = "zh-CN";
+
+    private static DatabaseReader reader;
+
+    static {
+        InputStream classPathResource = FileUtil.getClassPathResource("GeoLite2-City.mmdb");
+        // This creates the DatabaseReader object. To improve performance, reuse
+        // the object across lookups. The object is thread-safe.
+        try {
+            reader = new DatabaseReader.Builder(classPathResource).build();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * 获取客户端IP地址
@@ -181,12 +195,8 @@ public class IpUtil {
     @SneakyThrows
     public static String getCityName(String ipAddr, String language) {
         if (IpUtil.isInnerIP(ipAddr)) {
-            return "Intranet Ip";
+            return INTERNAL_NETWORK;
         }
-        InputStream classPathResource = FileUtil.getClassPathResource("GeoLite2-City.mmdb");
-        // This creates the DatabaseReader object. To improve performance, reuse
-        // the object across lookups. The object is thread-safe.
-        DatabaseReader reader = new DatabaseReader.Builder(classPathResource).build();
 
         InetAddress ipAddress = InetAddress.getByName(ipAddr);
 
@@ -221,12 +231,8 @@ public class IpUtil {
     @SneakyThrows
     public static String getStateName(String ipAddr, String language) {
         if (IpUtil.isInnerIP(ipAddr)) {
-            return "内网IP";
+            return INTERNAL_NETWORK;
         }
-        InputStream classPathResource = FileUtil.getClassPathResource("GeoLite2-City.mmdb");
-        // This creates the DatabaseReader object. To improve performance, reuse
-        // the object across lookups. The object is thread-safe.
-        DatabaseReader reader = new DatabaseReader.Builder(classPathResource).build();
 
         InetAddress ipAddress = InetAddress.getByName(ipAddr);
 
@@ -261,12 +267,8 @@ public class IpUtil {
     @SneakyThrows
     public static String getCountryName(String ipAddr, String language) {
         if (IpUtil.isInnerIP(ipAddr)) {
-            return "内网IP";
+            return INTERNAL_NETWORK;
         }
-        InputStream classPathResource = FileUtil.getClassPathResource("GeoLite2-City.mmdb");
-        // This creates the DatabaseReader object. To improve performance, reuse
-        // the object across lookups. The object is thread-safe.
-        DatabaseReader reader = new DatabaseReader.Builder(classPathResource).build();
 
         InetAddress ipAddress = InetAddress.getByName(ipAddr);
 
