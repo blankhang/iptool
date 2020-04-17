@@ -74,8 +74,6 @@
                             <nonFilteredFileExtensions>
                                 <!-- 排除过滤2进制文件扩展-->
                                 <nonFilteredFileExtension>mmdb</nonFilteredFileExtension>
-                                <nonFilteredFileExtension>xlsx</nonFilteredFileExtension>
-                                <nonFilteredFileExtension>xls</nonFilteredFileExtension>
                             </nonFilteredFileExtensions>
                         </configuration>
                     </plugin>
