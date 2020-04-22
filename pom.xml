@@ -140,6 +140,7 @@
                             <autoVersionSubmodules>true</autoVersionSubmodules>
                             <tagNameFormat>@{project.version}</tagNameFormat>
                             <releaseProfiles>release</releaseProfiles>
+                            <localCheckout>true</localCheckout>
                             <checkModificationExcludes>
                                 <checkModificationExclude>.project</checkModificationExclude>
                                 <checkModificationExclude>.classpath</checkModificationExclude>
