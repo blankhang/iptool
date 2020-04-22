@@ -4,7 +4,7 @@
 
     <groupId>com.github.blankhang</groupId>
     <artifactId>iptool</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>iptool</name>
@@ -28,7 +28,8 @@
 
     <scm>
         <url>https://github.com/blankhang/iptool</url>
-        <connection>https://github.com/blankhang/iptool.git</connection>
+        <connection>scm:git:https://github.com/blankhang/iptool.git</connection>
+        <developerConnection>scm:git:https://github.com/blankhang/iptool.git</developerConnection>
     </scm>
 
     <properties>
@@ -123,6 +124,28 @@
                             </execution>
                         </executions>
                     </plugin>
+
+                    <plugin>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <version>2.5.3</version>
+                        <configuration>
+                            <autoVersionSubmodules>true</autoVersionSubmodules>
+                            <tagNameFormat>@{project.version}</tagNameFormat>
+                            <releaseProfiles>release</releaseProfiles>
+                            <checkModificationExcludes>
+                                <checkModificationExclude>.project</checkModificationExclude>
+                                <checkModificationExclude>.classpath</checkModificationExclude>
+                            </checkModificationExcludes>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+                        <artifactId>maven-scm-publish-plugin</artifactId>
+                        <version>1.1</version>
+                        <configuration>
+                            <scmBranch>master</scmBranch>
+                        </configuration>
+                    </plugin>
                 </plugins>
                 <resources>
                     <!-- 解决烦人的MVN编译警告 -->
@@ -145,6 +168,11 @@
                     <id>release</id>
                     <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
                 </repository>
+
+                <site>
+                    <id>site</id>
+                    <url>https://github.com/blankhang/iptool</url>
+                </site>
             </distributionManagement>
         </profile>
     </profiles>
