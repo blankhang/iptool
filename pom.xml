@@ -164,12 +164,6 @@
                         <version>3.0.0</version>
                     </plugin>
 
-                    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-site-plugin -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-site-plugin</artifactId>
-                        <version>3.9.0</version>
-                    </plugin>
 
                 </plugins>
                 <resources>
@@ -194,10 +188,6 @@
                     <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
                 </repository>
 
-                <site>
-                    <id>site</id>
-                    <url>scm:git:https://github.com/blankhang/iptool.git</url>
-                </site>
             </distributionManagement>
         </profile>
     </profiles>
