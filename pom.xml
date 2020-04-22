@@ -176,7 +176,7 @@
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>release</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <nexusUrl>http://localhost:8081/nexus/</nexusUrl>
                             <!-- 发布完自动 release 到中央仓库 -->
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
                         </configuration>
