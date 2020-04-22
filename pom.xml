@@ -3,7 +3,7 @@
 
     <groupId>com.github.blankhang</groupId>
     <artifactId>iptool</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>iptool</name>
@@ -130,7 +130,7 @@
                         <version>2.5.3</version>
                         <configuration>
                             <!-- 自动更新子版本号-->
-                            <autoVersionSubmodules>false</autoVersionSubmodules>
+                            <autoVersionSubmodules>true</autoVersionSubmodules>
                             <tagNameFormat>@{project.version}</tagNameFormat>
                             <releaseProfiles>release</releaseProfiles>
                             <checkModificationExcludes>
