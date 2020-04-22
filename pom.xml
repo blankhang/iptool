@@ -196,7 +196,7 @@
 
                 <site>
                     <id>site</id>
-                    <url>https://github.com/blankhang/iptool</url>
+                    <url>scm:git:https://github.com/blankhang/iptool.git</url>
                 </site>
             </distributionManagement>
         </profile>
