@@ -167,6 +167,18 @@
                         <version>3.0.0</version>
                     </plugin>
 
+                    <!-- https://mvnrepository.com/artifact/org.sonatype.plugins/nexus-staging-maven-plugin -->
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.8</version>
+                        <configuration>
+                            <serverId>release</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <!-- 发布完自动 release 到中央仓库 -->
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
 
                 </plugins>
                 <resources>
