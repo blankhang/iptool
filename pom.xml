@@ -3,7 +3,7 @@
 
     <groupId>com.github.blankhang</groupId>
     <artifactId>iptool</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>iptool</name>
@@ -139,13 +139,16 @@
                         </configuration>
                     </plugin>
 
+                    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-scm-publish-plugin -->
                     <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-scm-publish-plugin</artifactId>
-                        <version>1.1</version>
+                        <version>3.0.0</version>
                         <configuration>
                             <scmBranch>master</scmBranch>
                         </configuration>
                     </plugin>
+
                 </plugins>
                 <resources>
                     <!-- 解决烦人的MVN编译警告 -->
