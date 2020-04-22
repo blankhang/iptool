@@ -174,18 +174,9 @@
                         <artifactId>nexus-staging-maven-plugin</artifactId>
                         <version>1.6.8</version>
                         <extensions>true</extensions>
-                        <executions>
-                            <execution>
-                                <id>default-deploy</id>
-                                <phase>deploy</phase>
-                                <goals>
-                                    <goal>deploy</goal>
-                                </goals>
-                            </execution>
-                        </executions>
                         <configuration>
                             <serverId>release</serverId>
-                            <nexusUrl>http://localhost:8081/nexus/</nexusUrl>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                             <!-- 发布完自动 release 到中央仓库 -->
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
                         </configuration>
