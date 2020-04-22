@@ -29,7 +29,7 @@
         <url>https://github.com/blankhang/iptool</url>
         <connection>scm:git:https://github.com/blankhang/iptool.git</connection>
         <developerConnection>scm:git:https://github.com/blankhang/iptool.git</developerConnection>
-        <tag>1.0.3</tag>
+        <tag>1.0.4</tag>
   </scm>
 
     <properties>
@@ -176,7 +176,7 @@
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>release</serverId>
-                            <nexusUrl>https://oss.sonatype.org/service/local/staging/deploy/maven2</nexusUrl>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                             <!-- 发布完自动 release 到中央仓库 -->
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
                         </configuration>
