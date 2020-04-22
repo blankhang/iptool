@@ -6,14 +6,14 @@
     <parent>
         <groupId>com.github.blankhang</groupId>
         <artifactId>iptool</artifactId>
-        <version>1.0.5-SNAPSHOT</version>
+        <version>1.0.5</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
 
     <artifactId>common</artifactId>
     <name>common</name>
-    <version>1.0.5-SNAPSHOT</version>
+    <version>1.0.5</version>
     <packaging>jar</packaging>
 
     <url>https://github.com/blankhang/iptool</url>
@@ -98,6 +98,6 @@
 
 
   <scm>
-    <tag>1.0.3</tag>
+    <tag>1.0.5</tag>
   </scm>
 </project>
