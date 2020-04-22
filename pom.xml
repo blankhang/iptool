@@ -3,7 +3,7 @@
 
     <groupId>com.github.blankhang</groupId>
     <artifactId>iptool</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.4-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>iptool</name>
