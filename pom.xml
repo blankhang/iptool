@@ -125,22 +125,6 @@
                         </executions>
                     </plugin>
 
-
-                    <!--  将工程发布到 github release -->
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.8</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <!-- 这里的id必须要和全局配置中的release id 一致 -->
-                            <serverId>oss</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <!-- 如果希望发布后自动执行close和release操作，此处可以调整为true -->
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                        </configuration>
-                    </plugin>
-
                     <plugin>
                         <artifactId>maven-release-plugin</artifactId>
                         <version>2.5.3</version>
