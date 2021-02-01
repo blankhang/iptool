@@ -15,7 +15,7 @@ add 添加 maven 依赖
   <dependency>
     <groupId>com.github.blankhang</groupId>
     <artifactId>common</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
   </dependency>
 ```
 this dependency to your pom.xml  
