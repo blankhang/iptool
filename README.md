@@ -7,6 +7,7 @@
 This work is licensed under  
 1. [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)  
 2. [GeoLite2 End User License Agreement](https://www.maxmind.com/en/geolite2/eula)
+3. [This product includes GeoLite2 data created by MaxMind, available from https://www.maxmind.com](https://www.maxmind.com)
 
 ## how to use 用法
 add 添加 maven 依赖
