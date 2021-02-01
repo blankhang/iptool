@@ -3,7 +3,7 @@
 
     <groupId>com.github.blankhang</groupId>
     <artifactId>iptool</artifactId>
-    <version>1.1.0-SNAPSHOT</version>
+    <version>1.1.0</version>
     <packaging>pom</packaging>
 
     <name>iptool</name>
@@ -60,138 +60,6 @@
     <!-- 使用个人资料：由于生成javadoc和源jar以及使用GPG签署组件是一个相当耗时的过程，因此这些执行通常与正常的构建配置隔离并移动到配置文件中。然后，在通过激活配置文件执行部署时，将使用此配置文件。 -->
     <profiles>
 
-        <!--快照版本-->
-        <!--mvn clean deploy -P snapshots -Dmaven.test.skip=true -->
-        <profile>
-            <id>snapshots</id>
-            <build>
-                <plugins>
-
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <version>3.1.0</version>
-                        <configuration>
-                            <nonFilteredFileExtensions>
-                                <!-- 排除过滤2进制文件扩展-->
-                                <nonFilteredFileExtension>mmdb</nonFilteredFileExtension>
-                            </nonFilteredFileExtensions>
-                        </configuration>
-                    </plugin>
-
-                    <!-- 要生成Javadoc和Source jar文件，您必须配置javadoc和源Maven插件 -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>3.2.1</version>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>3.2.0</version>
-                        <!--  <configuration>-->
-                        <!--     <doclint>none</doclint>-->
-                        <!--  </configuration>-->
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!--  必须配置GPG插件用于使用以下配置对组件进行签名 -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <plugin>
-                        <artifactId>maven-release-plugin</artifactId>
-                        <version>2.5.3</version>
-                        <configuration>
-                            <!-- 自动更新子版本号-->
-                            <autoVersionSubmodules>true</autoVersionSubmodules>
-                            <tagNameFormat>@{project.version}</tagNameFormat>
-                            <releaseProfiles>release</releaseProfiles>
-                            <localCheckout>true</localCheckout>
-                            <checkModificationExcludes>
-                                <checkModificationExclude>.project</checkModificationExclude>
-                                <checkModificationExclude>.classpath</checkModificationExclude>
-                            </checkModificationExcludes>
-                        </configuration>
-                    </plugin>
-
-                    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-scm-publish-plugin -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-scm-publish-plugin</artifactId>
-                        <version>3.0.0</version>
-                        <configuration>
-                            <scmBranch>master</scmBranch>
-                        </configuration>
-                    </plugin>
-
-                    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-deploy-plugin</artifactId>
-                        <version>2.8.2</version>
-                    </plugin>
-
-                    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-project-info-reports-plugin -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-project-info-reports-plugin</artifactId>
-                        <version>3.0.0</version>
-                    </plugin>
-
-
-                </plugins>
-                <resources>
-                    <!-- 解决烦人的MVN编译警告 -->
-                    <resource>
-                        <directory>src/main/resources</directory>
-                        <filtering>false</filtering>
-                        <excludes>
-                            <exclude>src/main/resources/GeoLite2-City.mmdb</exclude>
-                        </excludes>
-                    </resource>
-                </resources>
-            </build>
-            <!-- 【注】snapshotRepository 与 repository 中的 id 一定要与 setting.xml 中 server 的 id 保持一致！ -->
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>snapshots</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-                </snapshotRepository>
-                <repository>
-                    <id>release</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-
-            </distributionManagement>
-        </profile>
-
         <!--release-->
         <!--mvn clean deploy -P release -Dmaven.test.skip=true -->
         <profile>
@@ -201,7 +69,6 @@
             </activation>
             <build>
                 <plugins>
-
                     <!--  将工程发布到 github release -->
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
@@ -209,8 +76,8 @@
                         <version>1.6.8</version>
                         <extensions>true</extensions>
                         <configuration>
-                            <!-- 这里的id必须要和全局配置中的release id 一致 -->
-                            <serverId>oss</serverId>
+                            <!-- 这里的id必须要和 maven 配置文件[C:\Users\(username)\.m2\settings.xml]  servers-server-id[oss.sonatype.org的账号密码对应的server-id] 一致 -->
+                            <serverId>release</serverId>
                             <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                             <!-- 如果希望发布后自动执行close和release操作，此处可以调整为true -->
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
