@@ -24,7 +24,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <hutool.version>5.5.7</hutool.version>
+        <hutool.version>5.8.12</hutool.version>
         <lombok.version>1.18.12</lombok.version>
         <commons-lang3.version>3.9</commons-lang3.version>
         <geoip2.version>2.15.0</geoip2.version>
